@@ -1,0 +1,2 @@
+module BrigadeLandpageHelper
+end
