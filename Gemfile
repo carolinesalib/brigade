@@ -57,3 +57,12 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+gem "solargraph", "~> 0.52.0"
+
+gem "rubocop", "~> 1.71"
+gem "rubocop-packaging"
+gem "rubocop-performance"
+gem "rubocop-rspec"
+gem "rubocop-shopify"
+gem "rubocop-thread_safety"

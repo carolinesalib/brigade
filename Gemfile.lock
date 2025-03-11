@@ -101,6 +101,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
+    backport (1.2.0)
     base64 (0.2.0)
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
@@ -120,6 +121,7 @@ GEM
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    diff-lcs (1.6.0)
     dotenv (3.1.7)
     drb (2.2.1)
     ed25519 (1.3.0)
@@ -142,6 +144,7 @@ GEM
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    jaro_winkler (1.6.0)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -157,6 +160,10 @@ GEM
       sshkit (>= 1.23.0, < 2.0)
       thor (~> 1.3)
       zeitwerk (>= 2.6.18, < 3.0)
+    kramdown (2.5.1)
+      rexml (>= 3.3.9)
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     language_server-protocol (3.17.0.4)
     logger (1.6.5)
     loofah (2.24.0)
@@ -202,6 +209,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.2-x86_64-linux-musl)
       racc (~> 1.4)
+    observer (0.1.2)
     ostruct (0.6.1)
     parallel (1.26.3)
     parser (3.3.7.1)
@@ -239,11 +247,16 @@ GEM
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
     rainbow (3.1.1)
     rake (13.2.1)
+    rbs (3.8.1)
+      logger
     rdoc (6.11.0)
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
+    reverse_markdown (3.0.0)
+      nokogiri
+    rexml (3.4.1)
     rubocop (1.71.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -259,6 +272,8 @@ GEM
     rubocop-minitest (0.36.0)
       rubocop (>= 1.61, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
+    rubocop-packaging (0.5.2)
+      rubocop (>= 1.33, < 2.0)
     rubocop-performance (1.23.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
@@ -272,8 +287,33 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
+    rubocop-rspec (3.4.0)
+      rubocop (~> 1.61)
+    rubocop-shopify (2.16.0)
+      rubocop (~> 1.62)
+    rubocop-thread_safety (0.6.0)
+      rubocop (>= 1.48.1)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
+    solargraph (0.52.0)
+      backport (~> 1.2)
+      benchmark
+      bundler (~> 2.0)
+      diff-lcs (~> 1.4)
+      jaro_winkler (~> 1.6)
+      kramdown (~> 2.3)
+      kramdown-parser-gfm (~> 1.1)
+      logger (~> 1.6)
+      observer (~> 0.1)
+      ostruct (~> 0.6)
+      parser (~> 3.0)
+      rbs (~> 3.0)
+      reverse_markdown (>= 2.0, < 4)
+      rubocop (~> 1.38)
+      thor (~> 1.0)
+      tilt (~> 2.0)
+      yard (~> 0.9, >= 0.9.24)
+      yard-solargraph (~> 0.1)
     solid_cable (3.0.7)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -323,6 +363,7 @@ GEM
     thruster (0.1.10-arm64-darwin)
     thruster (0.1.10-x86_64-darwin)
     thruster (0.1.10-x86_64-linux)
+    tilt (2.6.0)
     timeout (0.4.3)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
@@ -343,6 +384,9 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yard (0.9.37)
+    yard-solargraph (0.1.0)
+      yard (~> 0.9)
     zeitwerk (2.7.1)
 
 PLATFORMS
@@ -367,7 +411,14 @@ DEPENDENCIES
   propshaft
   puma (>= 5.0)
   rails!
+  rubocop (~> 1.71)
+  rubocop-packaging
+  rubocop-performance
   rubocop-rails-omakase
+  rubocop-rspec
+  rubocop-shopify
+  rubocop-thread_safety
+  solargraph (~> 0.52.0)
   solid_cable
   solid_cache
   solid_queue
