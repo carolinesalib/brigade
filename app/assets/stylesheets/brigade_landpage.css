@@ -1,3 +1,9 @@
 body {
   background-color: #E5E9FD;
 }
+.title {
+  color: #93ABF9;
+  font-family: "Young Serif";
+  font-size: 30px;
+  font-weight: 400;
+}
