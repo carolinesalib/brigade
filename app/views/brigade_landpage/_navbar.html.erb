@@ -1,4 +1,7 @@
-<nav class="w-full bg-[#E5E9FD] text-[#94ABF9] p-4 flex justify-between items-center">
+<div class="w-full bg-[#E5E9FD] text-[#94ABF9] p-4 flex justify-between items-center">
   <div class="text-xl font-bold title">Dog Brigade</div>
-  <a href="#about" class="text-lg hover:underline title">About</a>
-</nav>
+  <nav class="flex space-x-4">
+     <%= link_to "Pawtfolio", pawtfolio_path, class: "text-lg hover:underline title #{'underline' if current_page?(root_path) || current_page?(pawtfolio_path)}" %>
+    <a href="#about" class="text-lg hover:underline title">About</a>
+  </nav>
+</div>
