@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     root "home#index"
+    resources :pawtifolio
   end
 end

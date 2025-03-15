@@ -1,0 +1,13 @@
+<h1 class="text-3xl font-bold">Pawtifolio</h1>
+<p class="mt-4 text-gray-700">Register your furry clients</p>
+
+<%= form_with do |form| %>
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
