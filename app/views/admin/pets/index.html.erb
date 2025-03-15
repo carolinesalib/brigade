@@ -1,0 +1,47 @@
+<div class="p-6 sm:px-6 lg:px-8 bg-white">
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold text-gray-900">Pawtifolio</h1>
+      <p class="mt-2 text-sm text-gray-700">A list of all the furry babies in the pawtifolio.</p>
+    </div>
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+      <%= button_to "New pet", new_admin_pet_url, method: :get, class: "block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    </div>
+  </div>
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="min-w-full divide-y divide-gray-300">
+          <thead>
+            <tr>
+              <th scope="col" class="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-0">Name</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Description</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Created at</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Updated at</th>
+              <th scope="col" class="relative py-3.5 pr-4 pl-3 sm:pr-0">
+                <span class="sr-only">Edit</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <% if @pets.any? %>
+              <% @pets.each do |pet| %>
+                <tr>
+                  <td class="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-0"><%= pet.name %></td>
+                  <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= pet.description.to_plain_text.truncate(27) %></td>
+                  <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= pet.created_at.in_time_zone('America/Denver').to_fs(:short)  %></td>
+                  <td class="px-3 py-4 text-sm whitespace-nowrap text-gray-500"><%= pet.updated_at.in_time_zone('America/Denver').to_fs(:short)  %></td>
+                  <td class="relative py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-0">
+                    <%= link_to "Edit", edit_admin_pet_path(pet.id), class: "text-indigo-600 hover:text-indigo-900" %>
+                  </td>
+                </tr>
+              <% end %>
+            <% else %>
+              <p class="text-center my-10">No pets found.</p>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
