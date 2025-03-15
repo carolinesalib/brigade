@@ -27,14 +27,13 @@
   <!-- Sidebar Menu -->
   <aside class="w-64 bg-gray-800 text-white h-full p-4 fixed">
     <h2 class="text-xl font-bold mb-4">Brigade Admin</h2>
-    <%# TODO: flex-col is not working %>
-    <div class="flex flex-col">
+    <div class="h-full flex flex-col justify-between" style="padding-bottom: 50px">
       <ul class="space-y-2">
         <li><a href="#" class="block p-2 rounded hover:bg-gray-700">Pawtifolio</a></li>
         <li><a href="#" class="block p-2 rounded hover:bg-gray-700">About</a></li>
         <li><a href="#" class="block p-2 rounded hover:bg-gray-700">Services</a></li>
       </ul>
-      <a href="#" class="block p-2 rounded hover:bg-gray-700">Logout</a>
+      <%= button_to "Logout", session_path, method: :delete, class: "block p-2 rounded hover:bg-gray-700 w-full", style: "text-align: left;" %>
     </div>
   </aside>
 
