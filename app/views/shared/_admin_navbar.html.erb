@@ -1,5 +1,5 @@
 <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-  <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+  <div data-controller="mobile-navbar" id="mobile-navbar" class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
     <!--
       Off-canvas menu backdrop, show/hide based on off-canvas menu state.
 
@@ -35,7 +35,7 @@
             To: "opacity-0"
         -->
         <div class="absolute top-0 left-full flex w-16 justify-center pt-5">
-          <button type="button" class="-m-2.5 p-2.5">
+          <button type="button" class="-m-2.5 p-2.5" data-action="click->mobile-navbar#close">
             <span class="sr-only">Close sidebar</span>
             <svg class="size-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
